@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace POOUIV
 {
-	//Clase sellada Sealed no se puede heredar
-    public sealed class Estudiante: Persona
+    public class Estudiante: Persona
     {
-		private string carnet;
+        private string carnet;
 
 		public string Carnet
 		{
@@ -17,23 +16,27 @@ namespace POOUIV
 			set { carnet = value; }
 		}
 
-		public Estudiante()
+        public override string cedula { get; set; }
+
+        public Estudiante()
 		{
 
 		}
 
-		public Estudiante(string cedula,string carnet, string nombre, int edad): base(cedula,nombre,edad)
+		public Estudiante(string cedula,string carnet, string nombre, int edad)
 		{
+			this.cedula = cedula;
 			this.carnet = carnet;
+			this.nombre = nombre;
+			this.edad = edad;
 		}
 
-		//Metodo Sellado Sealed no se puede heredar
-		public sealed override void MostrarInformacion()
-		{
-			base.MostrarInformacion();
-			Console.WriteLine("Carnet: "+Carnet);
-		}
-
-
-	}
+        public override void MostrarInformacion()
+        {
+            Console.WriteLine(cedula);
+            Console.WriteLine(carnet);
+			Console.WriteLine(nombre);
+			Console.WriteLine(edad);
+        }
+    }
 }

@@ -10,15 +10,23 @@ namespace POOUIV
     {
         static void Main(string[] args)
         {
-            Persona persona = new Persona("001-100798-0012Q","Josiel",25);
-
-            persona.MostrarInformacion();
 
             Console.WriteLine();
 
             Estudiante estudiante = new Estudiante("570-250799-1000D","15041255","Pedro",15);
 
+            estudiante.Saludar();
+            Console.WriteLine();
             estudiante.MostrarInformacion();
+
+            Console.WriteLine();
+
+            Instructor  instructor = new Instructor("Encargado de laboratorio", "570-250799-1000D","Pedro",18,60,1.75);
+
+            instructor.MostrarInformacion();
+            instructor.CalcularIMC();
+            instructor.Felicitaciones("Pedro","Felicidades por tu Ascenso a Responsable de laboratorio");
+
 
             Console.ReadKey();
 

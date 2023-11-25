@@ -7,53 +7,23 @@ using System.Threading.Tasks;
 namespace POOUIV
 { 
 	//Clase
-    public class Persona
+    public abstract class Persona
     {
 		//Propiedades
-		private string cedula;
+		public abstract string cedula { get; set; }
 
-		private string nombre;
+		public string nombre  {get; set; }
 
-		private int edad;
+		public int edad { get; set; }
 
-		//Getter y Setter
-		public int Edad
-		{
-			get { return edad; }
-			set { edad = value; }
-		}
+		public abstract void MostrarInformacion();
 
-		public string Nombre
-		{
-			get { return nombre; }
-			set { nombre = value; }
-		}
 
-		public string Cedula
-		{
-			get { return cedula; }
-			set { cedula = value; }
-		}
+		public void Saludar() {
+			Console.WriteLine(cedula);
+			Console.WriteLine(nombre);
+			Console.WriteLine(edad);
 
-		//Constructor por defecto
-		public Persona()
-		{
-
-		}
-
-		//Constructor con parametro
-        public Persona(string cedula, string nombre, int edad)
-		{
-			Cedula = cedula;
-			Nombre = nombre;
-			Edad = edad;
-		}
-
-		public virtual void MostrarInformacion()
-		{
-			Console.WriteLine("Cedula: "+ Cedula);
-			Console.WriteLine("Nombre: "+ Nombre);
-			Console.WriteLine("Edad: " + Edad);
-		}
+        }
 	}
 }
